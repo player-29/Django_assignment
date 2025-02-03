@@ -32,6 +32,9 @@ Follow these steps to set up the project on your local machine:
     ```bash
     python manage.py runserver
     ```
+## Admin Credentials
+Username: ayush
+Password: Admin12345
 
 ## API Usage Examples
 Here are some examples of how to use the API endpoints:
@@ -98,4 +101,4 @@ Please ensure your code follows our coding standards and includes appropriate te
 This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for more details.
 
 ## Contact
-For any questions or suggestions, please open an issue or contact [your email].
+For any questions or suggestions, please open an issue or contact ayushrathourraj@gmail.com
