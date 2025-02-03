@@ -1,7 +1,7 @@
 # Django Assignment
 
 ## Project Overview
-This project is a Django-based web application designed to [brief description of the project functionality].
+This project is a Django-based web application designed to build a multilingual FAQ (Frequently Asked Questions) management system using Django..
 
 ## Installation Steps
 Follow these steps to set up the project on your local machine:
@@ -15,7 +15,7 @@ Follow these steps to set up the project on your local machine:
 2. **Create a virtual environment:**
     ```bash
     python -m venv venv
-    source venv/bin/activate  # On Windows use `venv\Scripts\activate`
+    venv\Scripts\activate  # On mac use `source venv/bin/activate`.
     ```
 
 3. **Install the dependencies:**
