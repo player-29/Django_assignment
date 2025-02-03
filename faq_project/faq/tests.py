@@ -4,6 +4,8 @@ from .models import FAQ
 class FAQTestCase(TestCase):
     def setUp(self):
         self.faq = FAQ.objects.create(question="How do we start the development server?", answer="python manage.py runserver", language="en")
+        self.faq.translate()
+        
 
     def test_translation(self):
         self.assertEqual(self.faq.get_translation('hi'), self.faq.question_hi)

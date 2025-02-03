@@ -19,9 +19,14 @@ class FAQ(models.Model):
         languages = ["hi", "bn"]  # Hindi, Bengali
         for lang in languages:
             if not getattr(self, f"question_{lang}"):  # Only translate if missing
-                setattr(self, f"question_{lang}", translator.translate(self.question, dest=lang).text)
-            if not getattr(self, f"answer_{lang}"):  
-                setattr(self, f"answer_{lang}", translator.translate(self.answer, dest=lang).text)
+                translation = translator.translate(self.question, dest=lang).text
+                # print(f"Translating question to {lang}: {translation}")  # Debugging line
+                setattr(self, f"question_{lang}", translation)
+                
+            if not getattr(self, f"answer_{lang}"):
+                translation = translator.translate(self.answer, dest=lang).text
+                # print(f"Translating answer to {lang}: {translation}")  # Debugging line
+                setattr(self, f"answer_{lang}", translation)
         self.save()
 
     def get_translation(self, lang="en"):
@@ -33,10 +38,5 @@ class FAQ(models.Model):
             "answer": answer if answer else self.answer
         }
     
-    def save(self, *args, **kwargs):
-        """Override save to automatically translate before saving."""
-        self.translate()  # Automatically translate before saving
-        super().save(*args, **kwargs)
-
     def __str__(self):
         return self.question
