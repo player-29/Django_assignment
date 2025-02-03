@@ -26,10 +26,17 @@ class FAQ(models.Model):
 
     def get_translation(self, lang="en"):
         """Get translated text based on language."""
+        question = getattr(self, f"question_{lang}", None)
+        answer = getattr(self, f"answer_{lang}", None)
         return {
-            "question": getattr(self, f"question_{lang}", self.question) or self.question,
-            "answer": getattr(self, f"answer_{lang}", self.answer) or self.answer
+            "question": question if question else self.question,
+            "answer": answer if answer else self.answer
         }
+    
+    def save(self, *args, **kwargs):
+        """Override save to automatically translate before saving."""
+        self.translate()  # Automatically translate before saving
+        super().save(*args, **kwargs)
 
     def __str__(self):
         return self.question
