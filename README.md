@@ -9,7 +9,7 @@ Follow these steps to set up the project on your local machine:
 1. **Clone the repository:**
     ```bash
     git clone https://github.com/yourusername/django-assignment.git
-    cd django-assignment
+    cd django-assignment/faq_project
     ```
 
 2. **Create a virtual environment:**
